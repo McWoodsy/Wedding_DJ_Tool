@@ -3,8 +3,6 @@ package com.converter;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
-import java.lang.Thread;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -12,15 +10,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.WebElement;
-
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args ) throws InterruptedException
@@ -35,7 +28,7 @@ public class App
         popup.click();
 
 
-        String csvFile = "Arabic found by Michael_1718184434.csv";
+        String csvFile = "csv/playlist.csv";
 
         //  For line in CSV:
         try (CSVReader reader = new CSVReader(new FileReader(csvFile))) {
