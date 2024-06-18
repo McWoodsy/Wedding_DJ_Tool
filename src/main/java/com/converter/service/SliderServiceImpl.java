@@ -40,10 +40,10 @@ public class SliderServiceImpl implements ConverterService {
     @Override
     public void searchAndDownload() {
         for (String track : getTrackList()) {
-            sliderPage.enterQuery(track);
-            sliderPage.hitSearch();
-            sliderPage.clickDownload();
-            sliderPage.clearSearchBar(track);
+            getSliderPage().enterQuery(track);
+            getSliderPage().hitSearch();
+            getSliderPage().clickDownload();
+            getSliderPage().clearSearchBar(track);
         }
     };
 

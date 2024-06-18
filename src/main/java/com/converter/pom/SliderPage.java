@@ -33,38 +33,46 @@ public class SliderPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
+    public WebDriver getDriver() {
+        return this.driver;
+    }
+
+    public WebDriverWait getWait() {
+        return this.wait;
+    }
+
 
 
     //  Opens slider and clicks away the initial popup
     public void openSlider() {
-        driver.get(sliderUrl);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(popup));
-        driver.findElement(popup).click();
+        getDriver().get(sliderUrl);
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(popup));
+        getDriver().findElement(popup).click();
     }
 
     public void closeSlider() {
-        driver.close();
+        getDriver().close();
     }
 
     public void enterQuery(String songAndTitle) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(searchbar));
-        driver.findElement(searchbar).sendKeys(songAndTitle);
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(searchbar));
+        getDriver().findElement(searchbar).sendKeys(songAndTitle);
     };
 
     public void hitSearch() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(searchButton));
-        driver.findElement(searchButton).click();
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(searchButton));
+        getDriver().findElement(searchButton).click();
     };
 
     public void clickDownload() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(downloadButton));
-        driver.findElement(downloadButton).click();
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(downloadButton));
+        getDriver().findElement(downloadButton).click();
     };
 
     public void clearSearchBar(String songAndTitle) {
         char[] songAndTitleCharArray = songAndTitle.toCharArray();
         for (char character : songAndTitleCharArray) {
-            driver.findElement(searchbar).sendKeys(Keys.BACK_SPACE);
+            getDriver().findElement(searchbar).sendKeys(Keys.BACK_SPACE);
         }
     };
 
