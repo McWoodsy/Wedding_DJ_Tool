@@ -1,13 +1,11 @@
 package com.converter;
 
 import java.time.Duration;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.converter.service.ConverterService;
 
 
 public class SliderPage {
@@ -16,18 +14,17 @@ public class SliderPage {
 
     protected WebDriverWait wait;
 
-    private ConverterService converterService;
+    private String sliderUrl = "https://hayqbhgr.slider.kz/";
 
-    
 
     By downloadButton = By.xpath("//*[@id=\"liveaudio\"]/div[2]/div[2]/div[2]/a");
 
-    By popup = By.xpath("//*[@id=\\\"fullwrapper\\\"]/div");
+    By popup = By.xpath("//*[@id=\"fullwrapper\"]/div");
 
     By searchbar = By.className("buttonQuery");
 
     //  Check this xpath
-    By searchButton = By.xpath("//*[@id=\"searchButton]");
+    By searchButton = By.id("searchButton");
 
 
 
@@ -36,17 +33,29 @@ public class SliderPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
+    //  Opens slider and clicks away the initial popup
+    public void openSlider() {
+        driver.get(sliderUrl);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(popup));
+        driver.findElement(popup).click();
+    }
+
+    public void closeSlider() {
+        driver.close();
+    }
+
     public void enterQuery(String songAndTitle) {
-        //  Not needed? since this is POM is just for executing things, not for logic?
-        converterService.getTrackList();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(searchbar));
         driver.findElement(searchbar).sendKeys(songAndTitle);
     };
 
     public void hitSearch() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(searchButton));
         driver.findElement(searchButton).click();
     };
 
     public void clickDownload() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(downloadButton));
         driver.findElement(downloadButton).click();
     };
 
