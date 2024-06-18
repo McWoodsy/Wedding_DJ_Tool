@@ -1,32 +1,40 @@
 package com.converter.service;
 
 import java.util.List;
-
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import com.converter.SliderPage;
+import com.converter.pom.SliderPage;
 import com.converter.repository.ConverterRepository;
 import com.converter.repository.CsvRepositoryImpl;
 
 public class SliderServiceImpl implements ConverterService {
 
-    private ConverterRepository converterRepository = new CsvRepositoryImpl();
+    private ConverterRepository converterRepository;
 
-    private SliderPage sliderPage = new SliderPage(new ChromeDriver());
-
-
-    // public SliderServiceImpl(ConverterRepository converterRepository, SliderPage sliderPage) {
-    //     this.converterRepository = converterRepository;
-    //     this.sliderPage = sliderPage;
-    // }
+    private SliderPage sliderPage;
 
 
+    // Constructor injection
+    public SliderServiceImpl() {
+        this.sliderPage = new SliderPage();
+        this.converterRepository = new CsvRepositoryImpl();
+    }
+
+
+    public SliderPage getSliderPage() {
+        return this.sliderPage;
+    }
+
+
+    public ConverterRepository getConverterRepository() {
+        return this.converterRepository;
+    }
+
+    
     public void setup() {
-        sliderPage.openSlider();
+        getSliderPage().openSlider();
     };
 
     public void teardown() {
-        sliderPage.closeSlider();
+        getSliderPage().closeSlider();
     };
 
     @Override
@@ -41,7 +49,7 @@ public class SliderServiceImpl implements ConverterService {
 
     @Override
     public List<String> getTrackList() {
-        return converterRepository.getTrackList();
+        return getConverterRepository().getTrackList();
     };
     
 }

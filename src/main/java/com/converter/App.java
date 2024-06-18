@@ -20,7 +20,5 @@ public class App
         //  Close webdriver instance
         converterService.teardown();
 
-
-
     }
 }
