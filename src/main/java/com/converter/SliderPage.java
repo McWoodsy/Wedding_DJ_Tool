@@ -16,10 +16,9 @@ public class SliderPage {
 
     protected WebDriverWait wait;
 
-    // remove
-    private String src = "csv/playlist.csv";
-
     private ConverterService converterService;
+
+    
 
     By downloadButton = By.xpath("//*[@id=\"liveaudio\"]/div[2]/div[2]/div[2]/a");
 
@@ -30,13 +29,16 @@ public class SliderPage {
     //  Check this xpath
     By searchButton = By.xpath("//*[@id=\"searchButton]");
 
+
+
     public SliderPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void enterQuery(String songAndTitle) {
-        converterService.getTrackList(src);
+        //  Not needed? since this is POM is just for executing things, not for logic?
+        converterService.getTrackList();
         driver.findElement(searchbar).sendKeys(songAndTitle);
     };
 

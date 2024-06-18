@@ -10,18 +10,15 @@ import com.opencsv.exceptions.CsvValidationException;
 
 public class CsvRepositoryImpl implements ConverterRepository {
 
-    private static String src = "csv/playlist.csv";
+    private final static String src = "csv/playlist.csv";
 
     @Override
-    public List<String> getTrackList(String src) {
-
+    public List<String> getTrackList() {
         List<String> trackList = new LinkedList<>();
-
         try (CSVReader reader = new CSVReader(new FileReader(getSrc()))) {
             String[] line;
             line = reader.readNext();
             while ((line = reader.readNext()) != null) {
-
                 //  Create artistAndTrack string
                 String artistAndTrack = line[2] + " " + line[1];
                 trackList.add(artistAndTrack);
@@ -36,6 +33,5 @@ public class CsvRepositoryImpl implements ConverterRepository {
     public static String getSrc() {
         return src;
     }
-
-    
+ 
 }

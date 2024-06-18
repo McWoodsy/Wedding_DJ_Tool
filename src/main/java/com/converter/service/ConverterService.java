@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface ConverterService {
     
-    public void pasteAndSearch(String artistAndTrack);
+    public void pasteAndSearch();
 
-    public List<String> getTrackList(String srcFilePath);
+    public List<String> getTrackList();
 
 }
