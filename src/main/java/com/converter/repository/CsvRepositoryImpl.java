@@ -8,6 +8,7 @@ import java.util.List;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
+//  for now this class is only retrieving, not storing. add that
 public class CsvRepositoryImpl implements ConverterRepository {
 
     private final static String src = "csv/playlist.csv";

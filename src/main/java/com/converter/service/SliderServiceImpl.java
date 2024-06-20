@@ -12,30 +12,13 @@ public class SliderServiceImpl implements ConverterService {
     private SliderPage sliderPage;
 
 
-    // Constructor injection
+    // Constructor
     public SliderServiceImpl() {
         this.sliderPage = new SliderPage();
         this.converterRepository = new CsvRepositoryImpl();
     }
 
 
-    public SliderPage getSliderPage() {
-        return this.sliderPage;
-    }
-
-
-    public ConverterRepository getConverterRepository() {
-        return this.converterRepository;
-    }
-
-    
-    public void setup() {
-        getSliderPage().openSlider();
-    };
-
-    public void teardown() {
-        getSliderPage().closeSlider();
-    };
 
     @Override
     public void searchAndDownload() {
@@ -51,5 +34,22 @@ public class SliderServiceImpl implements ConverterService {
     public List<String> getTrackList() {
         return getConverterRepository().getTrackList();
     };
+
+    public void setup() {
+        getSliderPage().openSlider();
+    };
+
+    public void teardown() {
+        getSliderPage().closeSlider();
+    };
+
+    public SliderPage getSliderPage() {
+        return this.sliderPage;
+    }
+
+    public ConverterRepository getConverterRepository() {
+        return this.converterRepository;
+    }
+
     
 }
