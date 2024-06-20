@@ -23,6 +23,7 @@ public class SliderPage {
 
     By searchbar = By.className("buttonQuery");
 
+    //  Check this xpath
     By searchButton = By.id("searchButton");
 
 
