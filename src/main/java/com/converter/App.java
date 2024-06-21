@@ -1,14 +1,11 @@
 package com.converter;
 
 import com.converter.service.ConverterService;
-import com.converter.service.SliderServiceImpl;
 import com.converter.service.YouTubeServiceImpl;
 
 
 public class App 
 {
-
-
     public static void main( String[] args )
     {
 
