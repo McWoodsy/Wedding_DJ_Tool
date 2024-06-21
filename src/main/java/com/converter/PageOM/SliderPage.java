@@ -32,11 +32,11 @@ public class SliderPage extends WebPage{
     }
 
     //  Opens slider and clicks away the initial popup
-    public void openSlider() {
-        super.webUtil.getDriver().get(url);
-        super.webUtil.getWait().until(ExpectedConditions.visibilityOfElementLocated(popup));
-        super.webUtil.getDriver().findElement(popup).click();
-    }
+    // public void openSlider() {
+    //     super.webUtil.getDriver().get(url);
+    //     super.webUtil.getWait().until(ExpectedConditions.visibilityOfElementLocated(popup));
+    //     super.webUtil.getDriver().findElement(popup).click();
+    // }
 
     public void closeSlider() {
         super.webUtil.getDriver().close();
@@ -69,9 +69,9 @@ public class SliderPage extends WebPage{
         }
     };
 
-
+    @Override 
     public void setup() {
-        super.webUtil.getDriver().get(url);
+        super.webUtil.getDriver().get("https://hayqbhgr.slider.kz/");
         try{
             super.webUtil.getWait().until(ExpectedConditions.visibilityOfElementLocated(popup));
             super.webUtil.getDriver().findElement(popup).click();   
@@ -80,9 +80,7 @@ public class SliderPage extends WebPage{
             e.printStackTrace();
         }    };
 
-    public void teardown() {
-        super.webUtil.getDriver().close();
-    };
+
 
         
 

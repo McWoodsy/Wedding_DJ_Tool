@@ -17,8 +17,17 @@ public abstract class WebPage {
         this.webUtil = new WebUtil();
     }
 
-
-
-
-    
+    public void setup() {
+        //webUtil.getDriver().get("https://hayqbhgr.slider.kz/");
+        // try{
+        //     webUtil.getWait().until(ExpectedConditions.visibilityOfElementLocated(popup));
+        //     webUtil.getDriver().findElement(popup).click();   
+        // }
+        // catch (NoSuchElementException e) {
+        //     e.printStackTrace();
+        // }   
+     };
+    public final void teardown() {
+        webUtil.getDriver().quit(); 
+    }
 }

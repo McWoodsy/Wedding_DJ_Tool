@@ -30,13 +30,13 @@ public class SliderServiceImpl implements ConverterService {
     }
 
     
-    public void setup() {
-        getSliderPage().openSlider();
-    };
+    // public void setup() {
+    //     getSliderPage().super.webUtil.getDriver().get(url);
+    // };
 
-    public void teardown() {
-        getSliderPage().closeSlider();
-    };
+    // public void teardown() {
+    //     getSliderPage().closeSlider();
+    // };
 
     @Override
     public void searchAndDownload() {
