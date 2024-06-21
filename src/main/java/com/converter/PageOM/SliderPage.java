@@ -10,14 +10,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.converter.service.utility.WebUtil;
 
-public class SliderPage {
 
-    protected WebDriver driver;
+public class SliderPage extends WebPage{
 
-    protected WebDriverWait wait;
-
-    private String sliderUrl = "https://hayqbhgr.slider.kz/";
 
     By downloadButton = By.xpath("//*[@id=\"liveaudio\"]/div[2]/div[2]/div[2]/a");
 
@@ -31,44 +28,34 @@ public class SliderPage {
 
     // CONTRUCTOR
     public SliderPage() {
-        this.driver = new ChromeDriver();
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        super.url = "https://hayqbhgr.slider.kz/";
     }
-
-    public WebDriver getDriver() {
-        return this.driver;
-    }
-
-    public WebDriverWait getWait() {
-        return this.wait;
-    }
-
 
     //  Opens slider and clicks away the initial popup
     public void openSlider() {
-        getDriver().get(sliderUrl);
-        getWait().until(ExpectedConditions.visibilityOfElementLocated(popup));
-        getDriver().findElement(popup).click();
+        super.webUtil.getDriver().get(url);
+        super.webUtil.getWait().until(ExpectedConditions.visibilityOfElementLocated(popup));
+        super.webUtil.getDriver().findElement(popup).click();
     }
 
     public void closeSlider() {
-        getDriver().close();
+        super.webUtil.getDriver().close();
     }
 
     public void enterQuery(String songAndTitle) {
-        getWait().until(ExpectedConditions.visibilityOfElementLocated(searchbar));
-        getDriver().findElement(searchbar).sendKeys(songAndTitle);
+        super.webUtil.getWait().until(ExpectedConditions.visibilityOfElementLocated(searchbar));
+        super.webUtil.getDriver().findElement(searchbar).sendKeys(songAndTitle);
     };
 
     public void hitSearch() {
-        getWait().until(ExpectedConditions.visibilityOfElementLocated(searchButton));
-        getDriver().findElement(searchButton).click();
+        super.webUtil.getWait().until(ExpectedConditions.visibilityOfElementLocated(searchButton));
+        super.webUtil.getDriver().findElement(searchButton).click();
     };
 
     public void clickDownload() {
         try {
-            getWait().until(ExpectedConditions.visibilityOfElementLocated(downloadButton));
-            getDriver().findElement(downloadButton).click();
+            super.webUtil.getWait().until(ExpectedConditions.visibilityOfElementLocated(downloadButton));
+            super.webUtil.getDriver().findElement(downloadButton).click();
         }
         catch (NoSuchElementException e) {
             e.printStackTrace();
@@ -78,8 +65,23 @@ public class SliderPage {
     public void clearSearchBar(String songAndTitle) {
         char[] songAndTitleCharArray = songAndTitle.toCharArray();
         for (char character : songAndTitleCharArray) {
-            getDriver().findElement(searchbar).sendKeys(Keys.BACK_SPACE);
+            super.webUtil.getDriver().findElement(searchbar).sendKeys(Keys.BACK_SPACE);
         }
+    };
+
+
+    public void setup() {
+        super.webUtil.getDriver().get(url);
+        try{
+            super.webUtil.getWait().until(ExpectedConditions.visibilityOfElementLocated(popup));
+            super.webUtil.getDriver().findElement(popup).click();   
+        }
+        catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }    };
+
+    public void teardown() {
+        super.webUtil.getDriver().close();
     };
 
         

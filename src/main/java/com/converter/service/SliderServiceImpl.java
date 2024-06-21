@@ -15,7 +15,7 @@ public class SliderServiceImpl implements ConverterService {
 
     // Constructor
     public SliderServiceImpl() {
-        this.sliderPage = new SliderPage();
+        //this.sliderPage = new SliderPage();
         this.converterRepository = new CsvRepositoryImpl();
     }
 
