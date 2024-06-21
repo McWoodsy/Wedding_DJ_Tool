@@ -30,7 +30,6 @@ public class JsonUtil{
         JsonNode srcJson = (JsonNode)parse(subJson);
         JsonNode entriesJson = srcJson.get("entries");
         for (JsonNode entry : entriesJson) {
-            // Assuming each entry has a 'title' field
             String videoTitle = entry.get("title").asText();
             if (videoTitle.equals("[Deleted video]")) {continue;}
             else {tracklist.add(videoTitle);}

@@ -1,6 +1,8 @@
 package com.converter.PageOM;
 
 import java.time.Duration;
+import org.openqa.selenium.NoSuchElementException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -42,7 +44,6 @@ public class SliderPage {
     }
 
 
-
     //  Opens slider and clicks away the initial popup
     public void openSlider() {
         getDriver().get(sliderUrl);
@@ -65,8 +66,13 @@ public class SliderPage {
     };
 
     public void clickDownload() {
-        getWait().until(ExpectedConditions.visibilityOfElementLocated(downloadButton));
-        getDriver().findElement(downloadButton).click();
+        try {
+            getWait().until(ExpectedConditions.visibilityOfElementLocated(downloadButton));
+            getDriver().findElement(downloadButton).click();
+        }
+        catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
     };
 
     public void clearSearchBar(String songAndTitle) {
