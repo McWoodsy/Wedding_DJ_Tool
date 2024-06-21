@@ -1,4 +1,4 @@
-package com.converter.pom;
+package com.converter.PageOM;
 
 import java.time.Duration;
 import org.openqa.selenium.By;

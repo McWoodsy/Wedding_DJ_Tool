@@ -6,7 +6,7 @@ import com.converter.service.SliderServiceImpl;
 
 public class App 
 {
-    public static void main( String[] args ) throws InterruptedException
+    public static void main( String[] args )
     {
 
         ConverterService converterService = new SliderServiceImpl();

@@ -1,7 +1,8 @@
 package com.converter.service;
 
 import java.util.List;
-import com.converter.pom.SliderPage;
+
+import com.converter.PageOM.SliderPage;
 import com.converter.repository.ConverterRepository;
 import com.converter.repository.CsvRepositoryImpl;
 
