@@ -4,9 +4,11 @@ import java.util.List;
 
 public interface ConverterService {
 
-    public void setup();
+    //  These should go elsewhere
+    //public void setup();
+    //public void teardown();
+
     public List<String> getTrackList();
     public void searchAndDownload();
-    public void teardown();
     
 }
