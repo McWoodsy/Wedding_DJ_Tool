@@ -3,6 +3,7 @@ package com.converter.service;
 import java.util.List;
 
 import com.converter.PageOM.SliderPage;
+import com.converter.PageOM.WebPage;
 import com.converter.repository.ConverterRepository;
 import com.converter.repository.CsvRepositoryImpl;
 
@@ -10,12 +11,14 @@ public class SliderServiceImpl implements ConverterService {
 
     private ConverterRepository converterRepository;
 
-    private SliderPage sliderPage = new SliderPage();
+    private SliderPage sliderPage;
+
+    //WebPage webPage;
 
     // Constructor
-    public SliderServiceImpl() {
-        //this.sliderPage = new SliderPage();
+    public SliderServiceImpl(SliderPage sliderPage) {
         this.converterRepository = new CsvRepositoryImpl();
+        this.sliderPage = sliderPage;
     }
 
 
@@ -23,19 +26,10 @@ public class SliderServiceImpl implements ConverterService {
         return this.sliderPage;
     }
 
-
     public ConverterRepository getConverterRepository() {
         return this.converterRepository;
     }
 
-    
-    // public void setup() {
-    //     getSliderPage().super.webUtil.getDriver().get(url);
-    // };
-
-    // public void teardown() {
-    //     getSliderPage().closeSlider();
-    // };
 
     @Override
     public void searchAndDownload() {

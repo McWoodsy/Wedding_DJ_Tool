@@ -26,6 +26,7 @@ public abstract class WebPage {
     public void setup()  {
         getDriver().get("https://hayqbhgr.slider.kz/");
      ;}
+     
     public final void teardown() {
         getDriver().quit(); 
     }

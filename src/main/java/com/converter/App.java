@@ -13,7 +13,7 @@ public class App
     {
         WebPage webPage = new SliderPage();
         
-        ConverterService converterService = new SliderServiceImpl();
+        ConverterService converterService = new YouTubeServiceImpl((SliderPage)webPage);
 
         //  Open page
         webPage.setup();

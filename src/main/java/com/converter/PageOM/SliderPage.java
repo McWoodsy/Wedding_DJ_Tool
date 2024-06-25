@@ -28,6 +28,7 @@ public class SliderPage extends WebPage{
         super.url = "https://hayqbhgr.slider.kz/";
         super.popup = By.xpath("//*[@id=\"fullwrapper\"]/div");
         super.driver = super.getDriver();
+        super.wait = super.getWait();
     }
 
     public void closeSlider() {

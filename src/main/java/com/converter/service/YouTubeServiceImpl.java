@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.ProcessBuilder;
 import com.converter.PageOM.SliderPage;
+import com.converter.repository.CsvRepositoryImpl;
 import com.converter.service.utility.JsonUtil;
 import java.util.List;
 
@@ -19,8 +20,13 @@ public class YouTubeServiceImpl implements ConverterService{
     private SliderPage sliderPage;
 
     // Constructor
-    public YouTubeServiceImpl() {
-        //this.sliderPage = new SliderPage();
+    // public YouTubeServiceImpl() {
+    //     //this.sliderPage = new SliderPage();
+    // }
+
+    // Constructor
+    public YouTubeServiceImpl(SliderPage sliderPage) {
+        this.sliderPage = sliderPage;
     }
 
     public static String getJson(String url) {
