@@ -10,8 +10,7 @@ public class SliderServiceImpl implements ConverterService {
 
     private ConverterRepository converterRepository;
 
-    private SliderPage sliderPage;
-
+    private SliderPage sliderPage = new SliderPage();
 
     // Constructor
     public SliderServiceImpl() {

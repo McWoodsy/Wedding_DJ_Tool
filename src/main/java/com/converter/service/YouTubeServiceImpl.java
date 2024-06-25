@@ -20,7 +20,7 @@ public class YouTubeServiceImpl implements ConverterService{
 
     // Constructor
     public YouTubeServiceImpl() {
-        this.sliderPage = new SliderPage();
+        //this.sliderPage = new SliderPage();
     }
 
     public static String getJson(String url) {
